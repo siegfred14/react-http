@@ -15,11 +15,16 @@ class PostForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  submitHandler = (e) => {
+    e.preventDefault();
+    console.log(this.state);
+  };
+
   render() {
     const { userId, title, body } = this.state;
     return (
       <div>
-        <form>
+        <form onSubmit={this.submitHandler}>
           <div>
             <input
               type="text"
@@ -45,6 +50,7 @@ class PostForm extends Component {
             ></input>
           </div>
         </form>
+        <button type="submit">Submit</button>
       </div>
     );
   }
