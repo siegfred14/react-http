@@ -11,19 +11,38 @@ class PostForm extends Component {
     };
   }
 
+  changeHandler = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
   render() {
     const { userId, title, body } = this.state;
     return (
       <div>
         <form>
           <div>
-            <input type="text" name="userId" value={userId}></input>
+            <input
+              type="text"
+              name="userId"
+              value={userId}
+              onChange={this.changeHandler}
+            ></input>
           </div>
           <div>
-            <input type="text" name="title" value={title}></input>
+            <input
+              type="text"
+              name="title"
+              value={title}
+              onChange={this.changeHandler}
+            ></input>
           </div>
           <div>
-            <input type="text" name="body" value={body}></input>
+            <input
+              type="text"
+              name="body"
+              value={body}
+              onChange={this.changeHandler}
+            ></input>
           </div>
         </form>
       </div>
@@ -32,3 +51,5 @@ class PostForm extends Component {
 }
 
 export default PostForm;
+
+// tracking change in input handler and keep in sync with state attributes
